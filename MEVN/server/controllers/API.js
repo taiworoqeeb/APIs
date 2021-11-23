@@ -36,8 +36,8 @@ module.exports = class API {
         try{
            
             await Post.create(post);
-            res.status(200).json({
-            status: 'successfully posted',
+            res.status(201).json({
+            message: 'Post Created Successfully!'
         });
 
         } catch(err){
@@ -66,8 +66,8 @@ module.exports = class API {
         try{
             await Post.findByIdAndUpdate(req.params.id, newPost);
     
-            res.status(200).json({
-                status: 'updated successfully'
+            res.status(201).json({
+                message: 'Post Updated Successfully'
             });
 
         } catch(err){
@@ -90,8 +90,8 @@ module.exports = class API {
                     console.log(err)
             }
         }  
-            res.status(200).json({
-                    status: 'deleted successfully'
+            res.status(201).json({
+                    message: 'Post Deleted Successfully'
                 });
         
             
