@@ -1,9 +1,17 @@
 const mongoose = require('mongoose');
+
+let ticket = 1;
+let ticketcount = {
+    type: Number,
+    default: () => ticket++
+};
+
 const ComplainSchema = mongoose.Schema({
-    ticketId: {
-        type: Number,
-        default: 0
+    username: {
+        type: String,
+        required: true
     },
+    ticketId: ticketcount,
     ticket_status:{
         type: String,
         enum: ['unsolved', 'attending', 'solved'],
@@ -17,8 +25,14 @@ const ComplainSchema = mongoose.Schema({
     description: {
         type: String,
         required: true
-    }
+    },
+    comment:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'comments'
+    }]
 
-});
+},
+{timestamps: true}
+);
 
 module.exports = new mongoose.model('complain', ComplainSchema);

@@ -1,0 +1,15 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 96vh;
+  background-color: white;
+  border-radius: 1em 0 0 1em;
+}
+
+.version {
+  margin-top: auto;
+  text-align: center;
+  padding-bottom: 0.8em;
+  color: lightblue;
+}

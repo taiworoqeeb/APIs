@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const passport = require('passport');
 
+
 exports.RegisterUser = async (role, req, res) => {
     try{
 
@@ -26,7 +27,6 @@ exports.RegisterUser = async (role, req, res) => {
     
         await user.save();
 
- 
         res.status(200).json({
             status: "success",
             user
@@ -127,7 +127,7 @@ exports.getUsers = async (req, res)=>{
 
 exports.getUser = async (req, res) => {
     try {
-        const user = await User.findOne(req.params.username);
+        const user = await User.findOne(req.params.username)
         res.status(200).json(user)
 
     } catch (error) {
@@ -164,8 +164,10 @@ exports.deleteUser = async(req, res) => {
     }
 };
 
-exports.checkRole = roles => (req, res, next) => 
-!roles.includes(req.user.role) 
-    ? res.status(401).json("Unauthorized") 
-    : next();
+exports.checkRole = roles => (req, res, next) => {
+if(!roles.includes(req.user.role)){ 
+    res.status(401).json("Unauthorized") 
+    }
+    next();
+};
 

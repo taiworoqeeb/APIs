@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const customer = require('../controller/customercontroller');
-const { profile, userAuth, RegisterUser, LoginUser, checkRole, getUser, getUsers, updateUser, deleteUser }= require('../controller/staffcontroller');
-const passport = require('passport');
+const { profile, userAuth, RegisterUser, LoginUser, checkRole, getUser, getUsers, updateUser, deleteUser } = require('../controller/staffcontroller');
 const complain = require('../controller/complaincontroller');
+const comment = require('../controller/commentcontroller');
+const reply = require('../controller/replycontroller')
 
 
 router
@@ -18,10 +19,44 @@ router
 .route('/customers/status/:id')
 .patch(customer.activate_deactivate);
 
-/*router
-.get('/dashboard/profile', userAuth, async(req, res) => {
-    return res.json(profile(req.user));
-});*/
+//Complains route
+router
+.route('/dashboard/complains')
+.get(userAuth, complain.getAll)
+.post(complain.CreateComplain);
+
+router
+.route('/dashboard/complain/:ticketId')
+.get(userAuth, complain.getOne)
+.delete(userAuth, complain.DeleteComplain)
+
+//Commnet route
+router
+.route('/dashboard/complain/comments')
+.get(comment.GetAllComments)
+
+router
+.route('/dashboard/complain/:ticketId/comment')
+.post(comment.CreateComment)
+
+router
+.route('/dashboard/complain/:ticketId/comment')
+.get(comment.GetComment)
+.delete(comment.DeleteComment)
+
+//Reply route
+router
+.route('/dashboard/complain/:ticketId/comment/reply')
+.post(reply.CreateReply)
+
+router
+.route('/dashboard/complain/comments/reply')
+.get(reply.GetAllReplies)
+
+router
+.route('/dashboard/complain/:ticketId/comment/reply/')
+.get(reply.GetReply)
+.delete(reply.DeleteReply)
 
 //staff
 router
@@ -49,11 +84,14 @@ router
 
 router
 .route('/dashboard/profile')
-.get(userAuth, async(req, res) => { return res.json(profile(req.user)) })
-.get('/users', userAuth, checkRole(['admin']), getUsers )
-.get('/user/:username', userAuth, checkRole(['admin']), getUser)
-.patch('/user-update/:username', userAuth, checkRole(['admin']), updateUser)
-.delete('/delete-user/:username', userAuth, checkRole(['admin']), deleteUser);
+.get(userAuth, async(req, res) => { 
+    return res.json(profile(req.user)) 
+});
+
+router.get('/dashboard/profile/users', userAuth, checkRole(['admin']), getUsers );
+router.get('/dashboard/profile/user/:username', userAuth, checkRole(['admin']), getUser);
+router.patch('/dashboard/profile/user-update/:username', userAuth, checkRole(['admin']), updateUser);
+router.delete('/dashboard/profile/delete-user/:username', userAuth, checkRole(['admin']), deleteUser);
 
 
 router

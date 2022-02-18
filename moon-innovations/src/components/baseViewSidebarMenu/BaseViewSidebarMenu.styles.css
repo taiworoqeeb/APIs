@@ -1,0 +1,16 @@
+.baseview-menu {
+  padding: 0;
+  width: 60%;
+  margin-top: 2em;
+}
+
+.baseview-menu--item {
+  display: block;
+  width: 100%;
+  padding: 1em 0;
+  text-align: center;
+  background: rgb(18, 18, 54);
+  color: rgb(255 255 255 / 0.75);
+  border-radius: 0 2em 2em 0;
+  margin: 0.5em 0;
+}
