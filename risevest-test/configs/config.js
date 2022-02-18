@@ -16,6 +16,6 @@ var db = new Sequelize(database, username, password, {
     }
 });
 
-//Sequelize.sync();
+
 
 module.exports = db
