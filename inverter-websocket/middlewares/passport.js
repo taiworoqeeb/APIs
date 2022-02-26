@@ -12,24 +12,29 @@ module.exports = (passport) => {
         new Strategy(options, async(payload, done) => {
             await User.findById(payload.user_id).then(user => {
             if(user){
-                return done(null, user);
+                done(null, user);
+                return;
             }
-                return done(null, false);
+                done(null, false);
+                return;
             
         })
         .catch(err => {
-            return done(null, false); 
+            done(null, false); 
+            return;
         });
     })
     
     );
     passport.serializeUser(function (user, done) {
        done(null, user.id);
+       return;
     });
 
     passport.deserializeUser(function (id, done) {
         User.findById(id, function (err, user) {
             done(err, user);
+            return;
         });
     });
 };

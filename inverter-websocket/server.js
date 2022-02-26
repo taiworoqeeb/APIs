@@ -11,6 +11,7 @@ mongoose.connect(DB, {
 }).then(() =>  console.log('DataBase connection successful!'));
 
 const port = process.env.PORT;
+
 app.listen(port, (err) => {
   if (err) console.log("Error in Server setup");
   console.log(`listening to  http://localhost:${port}`);

@@ -1,13 +1,15 @@
 const WebSocket = require('ws');
 const ws = new WebSocket("wss://mwp2s3uoui.execute-api.us-east-2.amazonaws.com/dev/");
 
+
 /*exports.Response = async (req, res) => {
 
-   await ws.addEventListener('message', e => {
-        return res.send(JSON.parse(e.data))
+    ws.addEventListener('message', e => {
+        const result = JSON.parse(e.data)
+        return result
       });
 }*/
-exports.Subscribe = (req, res, next) => {
+exports.Subscribe = async (req, res) => {
     const { msg } = req.body;
         if(msg === "subscribe"){
             const payload = {
@@ -16,11 +18,20 @@ exports.Subscribe = (req, res, next) => {
                     deviceId: "deviceId1"
                 }
             }
-            ws.send(JSON.stringify(payload))
-            res.status(200).json("successfully subscribe")
+            ws.addEventListener('message', e => { 
+                var result = JSON.stringify(e.data)
+                res.statusCode = 200;
+                res.end(JSON.parse(result)); 
+                return;
+               
+              });
+            return ws.send(JSON.stringify(payload))
+            //res.status(200).json("successfully subscribe")
             
+           
         }
-        next();
+        
+      
 };
 
 exports.Unsubscribe =  (req, res) => {
@@ -32,8 +43,17 @@ exports.Unsubscribe =  (req, res) => {
                     deviceId: "deviceId1"
                 }
             }
-            ws.send(JSON.stringify(payload))
-            res.status(200).json("successfully unsubscribed")
+            ws.addEventListener('message', e => { 
+                var result = JSON.stringify(e.data)
+                res.statusCode = 200;
+                res.end(JSON.parse(result)); 
+                return;
+               
+              });
+           return ws.send(JSON.stringify(payload))
+            //res.status(200).json("successfully unsubscribed")
+        
+            
         }
 };
 
@@ -46,8 +66,15 @@ exports.Control = (req, res, next) => {
                     instruction: instruction
                 }
             }
-            ws.send(JSON.stringify(payload))
-            res.status(200).json(`successfully ${instruction}`)
+            ws.addEventListener('message', e => { 
+                var result = JSON.stringify(e.data)
+                res.statusCode = 200;
+                res.end(JSON.parse(result)); 
+                return;
+               
+              });
+            return ws.send(JSON.stringify(payload))
+            //res.status(200).json(`successfully ${instruction}`)
 
         }
         next();
@@ -62,8 +89,15 @@ exports.Control_On = (req, res) => {
             instruction: "on"
         }
     }
-    ws.send(JSON.stringify(payload))
-    res.status(200).json(`successfully ${payload.data.instruction}`)
+    ws.addEventListener('message', e => { 
+        var result = JSON.stringify(e.data)
+        res.statusCode = 200;
+        res.end(JSON.parse(result)); 
+        return;
+       
+      });
+    return ws.send(JSON.stringify(payload))
+    //res.status(200).json(`successfully ${payload.data.instruction}`)
 
 }
 
@@ -74,8 +108,15 @@ exports.Control_Off = (req, res) => {
             instruction: "off"
         }
     }
-    ws.send(JSON.stringify(payload))
-    res.status(200).json(`successfully ${payload.data.instruction}`)
+    ws.addEventListener('message', e => { 
+        var result = JSON.stringify(e.data)
+        res.statusCode = 200;
+        res.end(JSON.parse(result)); 
+        return;
+       
+      });
+    return ws.send(JSON.stringify(payload))
+    //res.status(200).json(`successfully ${payload.data.instruction}`)
 
 }
 
@@ -86,8 +127,15 @@ exports.Control_AlarmOn = (req, res) => {
             instruction: "alarm on"
         }
     }
-    ws.send(JSON.stringify(payload))
-    res.status(200).json(`successfully ${payload.data.instruction}`)
+    ws.addEventListener('message', e => { 
+        var result = JSON.stringify(e.data)
+        res.statusCode = 200;
+        res.end(JSON.parse(result)); 
+        return;
+       
+      });
+    return ws.send(JSON.stringify(payload))
+    //res.status(200).json(`successfully ${payload.data.instruction}`)
 
 }
 
@@ -98,31 +146,81 @@ exports.Control_AlarmOff = (req, res) => {
             instruction: "alarm off"
         }
     }
-    ws.send(JSON.stringify(payload))
-    res.status(200).json(`successfully ${payload.data.instruction}`)
+    ws.addEventListener('message', e => { 
+        var result = JSON.stringify(e.data)
+        res.statusCode = 200;
+        res.end(JSON.parse(result)); 
+        return;
+       
+      });
+    return ws.send(JSON.stringify(payload))
+    //res.status(200).json(`successfully ${payload.data.instruction}`)
 
 }
 
 exports.Control_Lock = (req, res) => {
-    const payload = {
-        action: "control_device",
-        data: {
-            instruction: "lock"
-        }
-    }
-    ws.send(JSON.stringify(payload))
-    res.status(200).json(`successfully ${payload.data.instruction}`)
-
+        const payload = {
+            action: "control_device",
+            data: {
+                instruction: "lock"
+            }
+        } 
+       ws.addEventListener('message', e => {
+            var result = JSON.stringify(e.data);
+            res.statusCode = 200;
+            //res.write(result);
+           // res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.parse(result)); 
+            return;
+           
+        });
+        return ws.send(JSON.stringify(payload))
+ 
 }
 
-exports.Control_Unlock = (req, res) => {
+exports.Control_Unlock = async (req, res) => {
+        const payload = {
+            action: "control_device",
+            data: {
+                instruction: "unlock"
+            }
+        }
+        ws.addEventListener('message', e => { 
+            var result = JSON.stringify(e.data)
+            res.statusCode = 200;
+            res.end(JSON.parse(result)); 
+            return;
+           
+          });
+        return ws.send(JSON.stringify(payload))
+    
+}
+
+exports.Readings = async (req, res) => {
     const payload = {
-        action: "control_device",
+        event: "new_data", 
         data: {
-            instruction: "unlock"
+            deviceId: "string",
+            timeStamp: "number",
+            deviceData: {
+                solarVolt: "number",
+                inverter_sataus: "number",
+                powerConsumption: "double",
+                temperature: "number",
+                inverterState: "number",
+                acVoltage: "string",
+                inverter_mode: "string",
+                battery: "string"
+            }
         }
     }
     ws.send(JSON.stringify(payload))
-    res.status(200).json(`successfully ${payload.data.instruction}`)
+    ws.addEventListener('message', e => { 
+        var result = JSON.parse(e.data)
+        //res.statusCode = 200;
+        //res.end(JSON.parse(result)); 
+        return res.status(200).send(result);
+      });
+
 
 }

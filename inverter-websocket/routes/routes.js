@@ -13,6 +13,7 @@ router.post('/dashboard/status/control_on', userAuth, ws.Control_On);
 router.post('/dashboard/status/control_off', userAuth, ws.Control_Off);
 router.post('/dashboard/status/control_alarmOn', userAuth, ws.Control_AlarmOn);
 router.post('/dashboard/status/control_alarmOff', userAuth, ws.Control_AlarmOff);
+router.get('/dashboard/status/reading', userAuth, ws.Readings);
 
 
 //staff
