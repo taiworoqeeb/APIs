@@ -1,18 +1,16 @@
-'use strict';
-const db = require('./configs/config');
-const cors = require("cors")
 const express = require('express');
-const app = express();
-const router = require('./routes/routes')
-const bodyParser = require('body-parser');
-const passport = require('passport');
+const cors = require('cors')
+const bodyParser = require('body-parser')
 const session = require('express-session');
 const redis = require('redis');
 const RedisStore = require('connect-redis')(session);
 require('dotenv').config()
-const fileUpload = require('express-fileupload')
-
 const redisClient = redis.createClient({ legacyMode: true });
+const { graphqlHTTP } = require('express-graphql');
+const graphQlSchema = require('./graphql/schema/userSchema');
+const graphQlResolvers = require('./graphql/controllers/index');
+const isAuth = require('./middleware/isAuth');
+const app = express();
 
 //Configure redis client
 redisClient.connect().catch(console.error);
@@ -24,6 +22,7 @@ redisClient.on('connect', function (err) {
 redisClient.on('error', function (err) {
   console.log('Could not establish a connection with redis. ' + err);
 });
+
 
 
 app.use(
@@ -38,28 +37,18 @@ app.use(
   store: new RedisStore({ client: redisClient })
 })
 );
-app.use(fileUpload());
+app.use(isAuth);
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json())
-app.use(passport.initialize());
-app.use(passport.session());
-app.use('/', router);
-require('./middlewares/passport')(passport);
 
-
-
-db.authenticate()
-    .then(() => console.log("Database connected"))
-    .catch(err => console.log('Error: ' + err ))
-
-
-
-const port = process.env.PORT;
-app.listen(port, (err) => {
-  if (err) console.log("Error in Server setup");
-  console.log(`listening to http://localhost:${port}`);
-});
-
+app.use('/graphql', 
+  graphqlHTTP({
+    schema: graphQlSchema,
+    rootValue: graphQlResolvers,
+    graphiql: true
+  })
+);
 
 module.exports = app;

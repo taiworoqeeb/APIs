@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const Session = require('express-session');
 const passport = require('passport');
+//var MongoDBStore = require('connect-mongodb-session')(Session)
 const redis = require('redis');
 const RedisStore = require('connect-redis')(Session);
 const cors = require("cors");
@@ -12,9 +13,9 @@ const ws = new WebSocket("wss://mwp2s3uoui.execute-api.us-east-2.amazonaws.com/d
 const nocache = require('nocache');
 //const onHeaders = require('on-headers')
 
+const redisUrl = process.env.REDISURL;
 
-
-const redisClient = redis.createClient({ legacyMode: true });
+const redisClient = redis.createClient(redisUrl, { legacyMode: true });
 
 //Configure redis client
 redisClient.connect().catch(console.error);
@@ -26,6 +27,15 @@ redisClient.on('connect', function (err) {
 redisClient.on('error', function (err) {
   console.log('Could not establish a connection with redis. ' + err);
 });
+
+/*var store = new MongoDBStore({
+  uri: process.env.DATABASE,
+  collection: 'mySessions'
+});
+// Catch errors
+store.on('error', function(error) {
+  console.log(error);
+});*/
 
 app.use(Session({
   secret: process.env.SECRET,

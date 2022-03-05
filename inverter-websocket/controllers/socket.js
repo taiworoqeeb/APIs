@@ -9,6 +9,7 @@ const ws = new WebSocket("wss://mwp2s3uoui.execute-api.us-east-2.amazonaws.com/d
         return result
       });
 }*/
+
 exports.Subscribe = async (req, res) => {
     const { msg } = req.body;
         if(msg === "subscribe"){
@@ -18,14 +19,19 @@ exports.Subscribe = async (req, res) => {
                     deviceId: "deviceId1"
                 }
             }
-            ws.addEventListener('message', e => { 
-                var result = JSON.stringify(e.data)
-                res.statusCode = 200;
-                res.end(JSON.parse(result)); 
+            ws.send(JSON.stringify(payload))
+            ws.on('message', (e) => { 
+                //var result = e.data
+                
+                var result = (JSON.parse(e.toString('utf-8'))).data
+                //console.log(result.data)
+                res.statusCode = 200; 
+                res.write(result);
+                res.end();
                 return;
+                //res.status(200).send(result);
                
               });
-            return ws.send(JSON.stringify(payload))
             //res.status(200).json("successfully subscribe")
             
            
@@ -198,29 +204,18 @@ exports.Control_Unlock = async (req, res) => {
 
 exports.Readings = async (req, res) => {
     const payload = {
-        event: "new_data", 
+        action: "monitor",
         data: {
-            deviceId: "string",
-            timeStamp: "number",
-            deviceData: {
-                solarVolt: "number",
-                inverter_sataus: "number",
-                powerConsumption: "double",
-                temperature: "number",
-                inverterState: "number",
-                acVoltage: "string",
-                inverter_mode: "string",
-                battery: "string"
-            }
+            deviceId: "deviceId1"
         }
     }
-    ws.send(JSON.stringify(payload))
     ws.addEventListener('message', e => { 
         var result = JSON.parse(e.data)
-        //res.statusCode = 200;
-        //res.end(JSON.parse(result)); 
-        return res.status(200).send(result);
+        res.statusCode = 200;
+        res.end(JSON.parse(result)); 
+        return;
       });
+    return ws.send(JSON.stringify(payload));
 
 
 }
