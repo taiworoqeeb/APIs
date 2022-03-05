@@ -1,0 +1,22 @@
+{
+  "name": "videochatapi",
+  "version": "1.0.0",
+  "description": "video chat api ",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.6",
+    "nodemon": "^2.0.15",
+    "peer": "^0.6.1",
+    "socket.io": "^4.4.1",
+    "uuid": "^8.3.2"
+  }
+}

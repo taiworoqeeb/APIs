@@ -1,0 +1,7 @@
+.dashboardView--main__body {
+  display: flex;
+  border: 2px solid rgb(13, 13, 54);
+  border-right: 0;
+  border-radius: 1em;
+  margin: 0.1em 0 0.1em 0.2em;
+}

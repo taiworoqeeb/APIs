@@ -1,0 +1,71 @@
+.vert--grow__main--body {
+  flex-grow: 1;
+}
+.baseView--main__body {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(13, 13, 54);
+  border-right: 0;
+  border-radius: 1em;
+  margin: 0.1em 0 0.1em 0.2em;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2em;
+  padding: 2em;
+}
+
+.product-desc {
+  width: min(22%, 150px);
+  height: auto;
+  border-radius: 1em;
+}
+
+.prod-img {
+  width: 100%;
+  border-radius: 1em;
+}
+
+.prod-img img {
+  max-width: 100%;
+  aspect-ratio: 1;
+  border-radius: 1em;
+  border: 1px solid lightblue;
+}
+
+.product-desc h3 {
+  color: rgb(255 255 255 / 0.75);
+  padding-top: 0.5em;
+  text-align: center;
+}
+
+.user-details {
+  padding: 0.4em 0 0.6em 1em;
+  position: relative;
+  margin-top: auto;
+}
+
+.user-details::before {
+  content: "";
+  width: 30%;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgb(255 255 255 / 0.75);
+}
+
+.user-details h2 {
+  color: lightblue;
+}
+
+.user-details p {
+  color: green;
+}
+
+.user-details p span {
+  color: rgb(255 255 255 / 0.75);
+}

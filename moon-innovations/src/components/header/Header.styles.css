@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  padding: 1em;
+  box-shadow: 0px 5px 7px -5px #111;
+  justify-content: space-between;
+}
+.header h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2em;
+}
+
+.header h1 span {
+  color: lightblue;
+}
+
+.header img {
+  width: 40px;
+}

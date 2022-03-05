@@ -1,0 +1,75 @@
+.inverter--readings-tracing {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+  padding: 1.5em 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.inverter--readings {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.7em 0.5em;
+  border-radius: 1em;
+  width: 80%;
+}
+
+.reading--values {
+  display: flex;
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.5em 0 0.5em 0.5em;
+}
+
+.reading--values p {
+  font-size: 0.75rem;
+  font-weight: bolder;
+}
+
+.reading--values p span {
+  color: rgb(96, 176, 202);
+}
+
+.reading--values input {
+  width: 5em;
+  color: red;
+  text-align: center;
+  padding: 0.3em 0;
+  border-radius: 0 0.6em 0.6em 0;
+}
+
+.trace {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+
+.trace h3:nth-child(1) {
+  background: lightblue;
+  padding: 0.7em;
+  border-radius: 1em;
+  text-align: center;
+  font-size: 0.8rem;
+  color: antiquewhite;
+}
+
+.trace h3:nth-child(2),
+.trace h3:nth-child(3) {
+  background: white;
+  padding: 0.7em;
+  border-radius: 1em;
+  text-align: center;
+  font-size: 0.8rem;
+  color: lightblue;
+}
+
+.trace h3:nth-child(4) {
+  background: tomato;
+  padding: 0.7em;
+  border-radius: 1em;
+  text-align: center;
+  font-size: 0.8rem;
+  color: lightblue;
+}

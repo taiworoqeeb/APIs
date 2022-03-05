@@ -1,0 +1,25 @@
+.inverter--test {
+  margin: 0.7em 0;
+}
+
+.test-menu {
+  list-style: none;
+  padding: 0;
+  color: antiquewhite;
+  font-size: 0.9rem;
+}
+
+.test-menu li:not(:nth-child(4)) {
+  padding-bottom: 0.7em;
+}
+
+.dropdown--active ul {
+  width: 80%;
+  margin: 0 auto;
+  list-style: none;
+  background: antiquewhite;
+  padding: 0.7em 0.7em 0 0.7em;
+  color: black;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}

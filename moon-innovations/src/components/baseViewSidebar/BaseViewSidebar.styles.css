@@ -1,0 +1,13 @@
+.menu5Fill {
+  color: lightblue;
+  align-self: center;
+}
+
+.baseview-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 96vh;
+  background-color: darkblue;
+  border-radius: 1em 0 0 1em;
+}

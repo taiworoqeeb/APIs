@@ -1,0 +1,8 @@
+.dashboard--view {
+  width: 75%;
+  height: 96vh;
+  display: flex;
+  flex-direction: column;
+  background: rgb(6, 6, 29);
+  box-shadow: -5px 0px 10px -5px #111;
+}
