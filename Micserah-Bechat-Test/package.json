@@ -1,0 +1,50 @@
+{
+  "name": "micserah-test",
+  "version": "1.0.0",
+  "description": "backend-test-micserah",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node public/server.js",
+    "postinstall": "npm run build",
+    "watch-node": "nodemon public/server.js",
+    "watch-ts": "tsc -w",
+    "dev": "nodemon server.ts",
+    "build": "tsc"
+  },
+  "author": "Taiwo Raqeeb",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/body-parser": "^1.19.2",
+    "@types/connect-redis": "^0.0.18",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/express-session": "^1.17.4",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^17.0.21",
+    "@types/passport": "^1.0.7",
+    "@types/passport-jwt": "^3.0.6",
+    "@types/redis": "^4.0.11",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.2",
+    "connect-redis": "^6.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.2",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "redis": "^4.0.4",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "engines": {
+    "node": "^17"
+  }
+}
