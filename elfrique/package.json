@@ -1,0 +1,43 @@
+{
+  "name": "elfrique",
+  "version": "1.0.0",
+  "description": "backend for elfrique site",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "Shittu Taofeek",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.26.3",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dayjs": "^1.10.4",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-flash-messages": "^0.1.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.12.0",
+    "generate-unique-id": "^2.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "mysql2": "^2.2.5",
+    "nanoid": "^3.3.2",
+    "nodemailer": "^6.4.16",
+    "passport": "^0.5.2",
+    "path": "^0.12.7",
+    "querystring": "^0.2.0",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "unique-string": "^2.0.0"
+  }
+}
