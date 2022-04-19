@@ -1,0 +1,65 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Documents </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-2 text-muted">Click to view full image!</div>
+                            <div class="chocolat-parent">
+                                <a href="/uploads/<%= kyc.image %>" class="chocolat-image" title="Just an example">
+                                    <div data-crop-image="285">
+                                        <img alt="image" src="/uploads/<%= kyc.image %>" class="img-fluid">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Deposit Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <tbody>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td><%= kyc.user.fname %>  <%= kyc.user.lname %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td><%= kyc.user.email %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td><%= kyc.user.phone %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Type</td>
+                                            <td><%= kyc.type %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date</td>
+                                            <td><%= kyc.createdAt %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

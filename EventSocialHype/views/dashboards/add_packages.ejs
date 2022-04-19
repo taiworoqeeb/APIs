@@ -1,0 +1,75 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+   
+    
+        <section class="section">
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <form action="<%= edit ? '/update/package' : '/add/package' %>" method="POST"
+                
+                            class="needs-validation" novalidate="">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4><%= edit ? 'Update Promotion Plan' : 'Add New Promotion Plan ' %></h4>
+                                   
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="name">Plan Name</label>
+                                        <input id="name" type="text" class="form-control" name="name" tabindex="1"
+                                        value="<%= edit ? package.name : '' %>" required autofocus>
+                                        <div class="invalid-feedback">
+                                            Please fill in plan name
+                                        </div>
+                                    </div>
+                                    
+                                    <% if(edit) { %>
+                                        <input type="hidden" name="id" value="<%=package.id %>">
+                                    <% } %>
+                                
+                                    
+                                    <div class="form-group">
+                                        <label for="price">Price</label>
+                                        <input id="interest" type="number" step="any" class="form-control" name="price" tabindex="1"
+                                        value="<%= edit ? package.price : '' %>" required autofocus>
+                                        <div class="invalid-feedback">
+                                            Please enter price
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    <div class="form-group">
+                                        <label for="duration">Duration(in days)</label>
+                                        <input id="duration" type="number" class="form-control" name="duration" tabindex="1"
+                                        value="<%= edit ? package.duration : '' %>" required autofocus>
+                                        <div class="invalid-feedback">
+                                            Please enter duration
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea id="description" type="text" class="form-control" name="description" required autofocus><%= edit ? package.description : '' %> </textarea>
+                                        <div class="invalid-feedback">
+                                            Please enter plan description
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="card-footer text-right">
+                                    <button class="btn btn-primary mr-1"
+                                    type="submit"><%= edit ? 'Update' : 'Add Plan' %></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+<%- include("../partials/footer2") %>

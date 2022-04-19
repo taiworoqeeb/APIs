@@ -1,0 +1,64 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Announcements</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped" id="table-1">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Title</th>
+                                                    <th>Message</th>
+                                                    <th>Expiration</th>
+                                                    <th>Created</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% for(let i = 0; i < announcements.length; i++) { %>
+                                                <tr>
+                                                    <td><%= i+ 1 %></td>
+                                                    <td>
+                                                        <%= announcements[i].title.replace( /(<([^>]+)>)/ig, '').length > 25 ? announcements[i].title.replace( /(<([^>]+)>)/ig, '').substr(0, 25) + "..."   : announcements[i].title.replace( /(<([^>]+)>)/ig, '') %>
+                                                    </td>
+                                                    <td>
+                                                        <%= announcements[i].message.replace( /(<([^>]+)>)/ig, '').length > 25 ? announcements[i].message.replace( /(<([^>]+)>)/ig, '').substr(0, 25) + "..."   : announcements[i].message.replace( /(<([^>]+)>)/ig, '') %>
+                                                    </td>
+                                                    <td><%= moment(announcements[i].expiredAt).format("YYYY-MMM-DD") %></td>
+                                                    <td><%= moment(announcements[i].createdAt).format("YYYY-MMM-DD") %></td>
+                                                    <td >
+                                                                                                                
+                                                        <form action="/delete/announcement" method="POST">
+                                                            <input type="hidden" name="id" value="<%= announcements[i].id %>">
+                                                            <button style="color: aliceblue;" class="btn btn-danger btn-pill mr-1" type="submit">Delete</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                <% } %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

@@ -1,0 +1,329 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+<!-- Main Content -->
+<%- include("../partials/alerts") %>
+<div class="main-content">
+    
+    <section class="section">
+        <div class="row ">
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-statistic-4">
+                        <div class="align-items-center justify-content-between">
+                            <div class="row ">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pr-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><i class="fa fa-user"
+                                                style="color: blue; margin-right: 5px;"
+                                                aria-hidden="true"></i></i>All Users</h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pl-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><%= usersCount %></h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-statistic-4">
+                        <div class="align-items-center justify-content-between">
+                            <div class="row ">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pr-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><i class="fa fa-check-circle"
+                                                style="color: blue; margin-right: 5px;"
+                                                aria-hidden="true"></i></i>Verified Users</h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pl-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><%= activeUsersCount %></h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-statistic-4">
+                        <div class="align-items-center justify-content-between">
+                            <div class="row ">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pr-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><i class="fa fa-check-circle"
+                                                style="color: blue; margin-right: 5px;"
+                                                aria-hidden="true"></i></i>Pending Event</h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pl-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><%= pendingEvent %></h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-statistic-4">
+                        <div class="align-items-center justify-content-between">
+                            <div class="row ">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pr-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><i class="fa fa-check-circle"
+                                                style="color: blue; margin-right: 5px;"
+                                                aria-hidden="true"></i></i>Approved Event</h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pl-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><%= approvedEvent %></h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-statistic-4">
+                        <div class="align-items-center justify-content-between">
+                            <div class="row ">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pr-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><i class="fa fa-check-circle"
+                                                style="color: blue; margin-right: 5px;"
+                                                aria-hidden="true"></i></i>Upcoming Event</h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pl-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><%= upcomingEvent %></h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-statistic-4">
+                        <div class="align-items-center justify-content-between">
+                            <div class="row ">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pr-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><i class="fa fa-check-circle"
+                                                style="color: blue; margin-right: 5px;"
+                                                aria-hidden="true"></i></i>Ongoing Event</h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pl-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><%= ongoingEvent %></h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-statistic-4">
+                        <div class="align-items-center justify-content-between">
+                            <div class="row ">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pr-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><i class="fa fa-check-circle"
+                                                style="color: blue; margin-right: 5px;"
+                                                aria-hidden="true"></i></i>Postponed Event</h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pl-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><%= postponedEvent %></h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-statistic-4">
+                        <div class="align-items-center justify-content-between">
+                            <div class="row ">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 pr-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><i class="fa fa-check-circle"
+                                                style="color: blue; margin-right: 5px;"
+                                                aria-hidden="true"></i></i>Cancelled Event</h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pl-0 pt-3">
+                                    <div class="card-content">
+                                        <p></p>
+                                        <h2 class="font-18"><%= cancelledEvent %></h2>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-body">
+            <div class="row justify-content-center">
+                
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Active Users</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%  for (let i = 0; i < users.length; i++ ) { %>
+                                        <tr>
+                                            <td><%= i + 1 %></td>
+                                            <td><%= users[i].name %></td>
+                                            <td><%= users[i].email %></td>
+                                            <td><%= users[i].phone %></td>
+                                            <td><%= moment(users[i].createdAt).format('DD-MM-YYYY') %></td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Notifications</h4>
+                        </div>
+                      <div class="card-body" id="notifyBox">
+                        
+                         
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    // const socket = io("http://localhost:5000");
+    const socket = io("https://event-social-api.herokuapp.com/");
+    function getNotifications() {
+        socket.on("getNotifications", payload =>{
+        console.log(payload);
+        let output =`<ul class="icon-data-list">`;
+                                
+                             
+                                
+                             
+                            
+        payload.forEach(notify =>{
+                output += `
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <strong>${notify.message}</strong> 
+                                            <br>
+                                            <small> ${moment(notify.createdAt).fromNow()}</small>
+                                            
+                                            <form action="#"">
+                                                <input type="hidden" id="notifyId" name="id" value="${notify.message}">
+                                                <button type="submit" class="close">
+                                                    <span aria-hidden="true" id="${notify.id}" class="closeBtn">&times;</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                
+                `;
+            });
+            output += `</ul>`;
+            document.getElementById("notifyBox").innerHTML = output;
+        });
+    }
+
+    getNotifications()
+    $('body').on('click','.closeBtn',function(e){
+        e.preventDefault()
+        var id = $(this).attr('id');
+        console.log(id);
+        $.ajax({
+            url: "/api/notification/read",
+            method: "POST",
+            data: {id},
+            success: (res =>{
+                console.log(res);
+            })
+        })
+        
+    })
+
+</script>

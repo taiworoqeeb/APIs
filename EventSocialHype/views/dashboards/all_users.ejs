@@ -1,0 +1,71 @@
+<!-- header -->
+<%- include("../partials/header_admin") %> <%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+  <%- include("../partials/alerts") %>
+  <section class="section">
+    <div class="section-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4>Active Users</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped" id="table-1">
+                  <thead>
+                    <tr>
+                      <th class="text-center">#</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Type</th>
+                      <th>Wallet</th>
+                      <th>Date Registered</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for (let i = 0; i < users.length; i++ ) { %>
+                    <tr>
+                      <td><%= i + 1 %></td>
+                      <td><%= users[i].name %></td>
+                      <td><%= users[i].email %></td>
+                      <td><%= getRole(users[i].role) %></td>
+                      <td><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'NGN' }).format(users[i].wallet) %></td>
+                        
+                      <td><%= moment(users[i].createdAt).format('YYYY-MMM-DD') %></td>
+                      <td style="display: flex; align-items: center; justify-content: space-around;">
+                        <a
+                        href="/edit/user/<%= users[i].id %>"
+                        class="btn btn-primary btn-pill"
+                        >View</a
+                      >
+                      
+                        <form
+                          id="delete-menu"
+                          action="/delete/user"
+                          method="POST"
+                        >
+                          <input
+                            type="hidden"
+                            name="id"
+                            value="<%= users[i].id %>"
+                          />
+                          <button class="btn btn-danger btn-pill mb-2" type="submit">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<%- include("../partials/footer2") %>

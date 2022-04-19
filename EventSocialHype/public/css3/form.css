@@ -1,0 +1,177 @@
+body {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(/images3/logo.png);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main {
+  width: 40%;
+  margin: 50px auto;
+}
+
+#tab-btn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.login, .register {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  color: #000;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.active {
+  background-color: #D96012;
+  color: #fff;
+}
+
+.content, .other {
+  width: 100%;
+  background-color: #eee;
+  padding: 20px 30px 30px 30px;
+  box-shadow: 2px 2px 5px #333;
+}
+
+.other {
+  display: none;
+}
+
+.form-control {
+  padding: 15px;
+}
+
+.form-control:focus {
+  outline: none;
+  border: 2px solid #D96012;
+}
+
+.btn-primary {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 15px;
+  background-color: #D96012;
+  border: none;
+}
+
+.btn-primary:hover {
+  color: #D96012;
+  border: 2px solid #D96012 !important;
+  background-color: transparent;
+}
+
+.btn-primary:active {
+  margin-top: 5px;
+}
+
+.socials button {
+  border: none;
+  margin-top: 30px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.socials i {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.socials button.google {
+  width: 200px;
+  background-color: #EF4239;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  margin-left: 40px;
+}
+
+.socials button.facebook {
+  width: 220px;
+  border: none;
+  color: #fff;
+  padding: 10px;
+}
+
+.fa-google, .fa-facebook {
+  font-size: 17px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+@media(max-width: 769px) {
+  #main {
+    width: 80%;
+    margin: 50px auto;
+  }
+}
+
+@media(max-width: 600px) {
+  .btn-primary {
+    width: 67%;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px;
+    background-color: #D96012;
+    border: none;
+  }
+  .socials {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .socials button.google {
+    width: 220px;
+    margin-left: 0px;
+  }
+}
+
+@media(max-width: 430px) {
+  .btn-primary {
+    width: 100%;
+  }
+  .socials button.facebook {
+    width: 240px;
+  }
+  .socials button.google {
+    width: 240px;
+  }
+}
+
+@media(max-width: 379px) {
+  .btn-primary {
+    width: 100%;
+  }
+  .socials button.facebook {
+    width: 210px;
+  }
+  .socials button.google {
+    width: 210px;
+  }
+}

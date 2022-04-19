@@ -1,0 +1,67 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="chat">
+                            <div class="chat-header clearfix">
+                                <div class="chat-about">
+                                    <div class="chat-with"><%= user.name %></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-box" id="mychatbox">
+                            <div class="card-body chat-content">
+                                <%  for (let i = 0; i < chats.length; i++ ) { %>
+                                    <!-- if chat is sender place it at right, else place it at left -->
+                                <% if(chats[i].sender_id == userId) { %>
+                                    <div class="chat-item chat-right">
+                                    <div class="chat-details">
+                                        <div class="chat-text"><%= chats[i].message %></div>
+                                        <div class="chat-time"><%= chats[i].createdAt %></div>
+                                    </div>
+                                </div>
+                                <% } else { %>
+                                    <div class="chat-item chat-left">
+                                        <div class="chat-details">
+                                            <div class="chat-text"><%= chats[i].message %></div>
+                                            <div class="chat-time"><%= chats[i].createdAt %></div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                <% } %>
+                                <!-- chat content -->
+                            </div>
+                            <div class="card-footer chat-form">
+                                <form id="chat-form">
+                                    <input id="msg" type="text" class="form-control" placeholder="Type a message"
+                                        style="border: 1px solid #555;">
+                                    <input type="hidden" name="receiver_id" id="receiver_id" value="<%= user.id %>">
+                                    <input type="hidden" name="sender_id" id="sender_id" value="<%= userId %>">
+                                    <button class="btn btn-primary">
+                                        <i class="far fa-paper-plane"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<%- include("../partials/footer2") %>
+
+<!-- cryptedge scripts -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/cryptedge_chat.js"></script>
+</body>
+
+</html>

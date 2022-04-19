@@ -1,0 +1,51 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                   
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Deposit Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <tbody>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td><%= deposits.user.name %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td><%= deposits.user.email %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td><%= deposits.user.phone %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Amount</td>
+                                            <td>$<%= deposits.amount %>.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date</td>
+                                            <td><%= deposits.createdAt %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

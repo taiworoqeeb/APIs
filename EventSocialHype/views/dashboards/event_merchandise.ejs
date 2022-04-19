@@ -1,0 +1,31 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <%  for (let i = 0; i < events.length; i++ ) { %>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="<%= events[i].image %>" class="img-thumbnail">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="text-center"><%= events[i].title %> </h4>
+                            <h4 class="text-center"><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'NGN' }).format((Number(events[i].amount))) %> </h4>
+                            <div class="text-center">
+                                <a href="/merchandise/sales/<%= events[i].id %> " class="btn btn-info btn-center">View Sales</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

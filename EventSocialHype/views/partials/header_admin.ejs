@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- index.html  21 Nov 2019 03:44:50 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Event Social Hype</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="/css/app.min.css">
+    <link rel="stylesheet" href="/bundles/datatables/datatables.min.css">
+  <link rel="stylesheet" href="/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="/bundles/izitoast/css/iziToast.min.css">
+  <link rel="stylesheet" href="/bundles/pretty-checkbox/pretty-checkbox.min.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
+  
+</head>
+<body class="light dark-sidebar theme-black">
+    <!-- loader -->
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar sticky" style="background: #E10D24;">
+                <div class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                                <i data-feather="maximize"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav navbar-right">
+                    
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"
+							class="nav-link dropdown-toggle nav-link-lg nav-link-user"> 
+							<i class="fa fa-user" ></i>
+								<span class="d-sm-none d-lg-inline-block"></span></a>
+                        <div class="dropdown-menu dropdown-menu-right pullDown">
+                            <div class="dropdown-title">Hello</div>
+							<a href="/admin-password" class="dropdown-item has-icon"> 
+								<i class="far fa-user"></i> Settings
+                            </a> 
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0);" class="dropdown-item has-icon text-danger" onclick="event.preventDefault();
+								document.getElementById('logout-menu').submit();">
+									<i class="fas fa-sign-out-alt"></i><span>Logout</span>
+								</a>
+								<form id="logout-menu" action="/logout" method="POST" style="display: none;">
+								</form>
+                        </div>
+                    </li>
+                </ul>
+            </nav>

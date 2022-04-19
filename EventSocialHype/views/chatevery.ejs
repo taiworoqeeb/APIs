@@ -1,0 +1,57 @@
+<%- include("./partials/header_admin") %>
+<%- include("./partials/sidebar") %>
+
+
+  <%- include("./partials/alerts") %>
+  
+<!-- nav -->
+
+<div class="main-content">
+  <%- include("./partials/alerts") %>
+  <section class="section">
+      <div class="section-body">
+          <div class="row">
+              <div class="col-12 col-md-12 col-lg-12">
+                  <form action="/sendmessage" method="POST" class="needs-validation" novalidate="">
+                      <div class="card">
+                          <div class="card-header">
+                              <h4>Add Announcement</h4>
+                          </div>
+                          <div class="card-body">
+                              <div class="form-group">
+                                  <label for="title">Title</label>
+                                  <input type="text" class="form-control" id="title" placeholder="Announcement title" name="title" required>
+                                  
+                              </div>
+                              <div class="form-group">
+                                  <label>Message</label>
+                                  <textarea class="summernote-simple form-control" name="message" required></textarea>
+                                  
+                                  <div class="invalid-feedback">
+                                      Please fill in message
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="expired">Expiration Date</label>
+                                  <input type="date" class="form-control" name="date" required>
+                                  
+                                  <div class="invalid-feedback">
+                                      Please fill in expiration date
+                                  </div>
+                              </div>
+                              
+                          </div>
+                          <div class="card-footer text-right">
+                              <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+</div>
+
+
+
+<%- include("./partials/footer2") %>

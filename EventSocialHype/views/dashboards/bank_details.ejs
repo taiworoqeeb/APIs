@@ -1,0 +1,46 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <form action="/bankdetails" method="POST" class="needs-validation" novalidate="">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Wallet Details</h4>
+                            </div>
+                            <div class="card-body">
+                                
+                                <div class="form-group">
+                                    <label for="acc_name">Account Name</label>
+                                    <input id="acc_name" type="text" class="form-control" name="acc_name" tabindex="1"
+                                        required autofocus value="">
+                                    <div class="invalid-feedback">
+                                        Please fill in account name
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="acc_num">Account Number</label>
+                                    <input id="acc_num" type="text" class="form-control" name="acc_num" tabindex="1"
+                                        required autofocus value="">
+                                    <div class="invalid-feedback">
+                                        Please fill in account number
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <button class="btn btn-primary mr-1" type="submit">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

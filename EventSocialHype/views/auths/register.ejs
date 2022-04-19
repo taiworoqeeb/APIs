@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+	<title><%= cryptedge.title %></title>
+	<!-- General CSS Files -->
+	<link rel="stylesheet" href="/css/app.min.css">
+	<link rel="stylesheet" href="/bundles/bootstrap-social/bootstrap-social.css">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/components.css">
+	<!-- Custom style CSS -->
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel='shortcut icon' type='image/x-icon' href='/img/favicon.ico' />
+</head>
+
+<body style="background-color: #212121;">
+	<%- include("../partials/alerts") %>
+	<div id="app">
+		<section class="section">
+			<div class="container mt-5">
+				<div class="row">
+					<div
+						class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+						<div class="card card-primary">
+							<div class="card-header">
+								<h4>Register</h4>
+							</div>
+							<div class="card-body">
+								<form method="POST" action="/signup" class="needs-validation" novalidate="">
+									<div class="form-group">
+										<!-- <label for="name">Name</label> -->
+										<input id="name" type="text" class="form-control" name="name" tabindex="1"
+											placeholder="Name" required autofocus>
+										<div class="invalid-feedback">
+											Please fill in your name
+										</div>
+									</div>
+									<div class="form-group">
+										<!-- <label for="email">Email</label> -->
+										<input id="email" type="email" class="form-control" name="email" tabindex="2"
+											placeholder="Email" required autofocus>
+										<div class="invalid-feedback">
+											Please fill in your email
+										</div>
+									</div>
+									<div class="form-group">
+										<!-- <div class="d-block">
+											<label for="phone" class="control-label">Phone</label>
+										</div> -->
+										<input id="phone" type="text" class="form-control" name="phone" tabindex="3"
+											required placeholder="Phone">
+										<div class="invalid-feedback">
+											please fill in your phone
+										</div>
+									</div>
+									<div class="form-group">
+										<!-- <div class="d-block">
+											<label for="password" class="control-label">Password</label>
+										</div> -->
+										<input id="password" type="password" class="form-control" name="password"
+											placeholder="Password" tabindex="4" required>
+										<div class="invalid-feedback">
+											please fill in your password
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="">
+											<label for="password" class="control-label"><a href="/"
+													class=" float-right">
+													Already Registered? Login<br>
+												</a></label>
+										</div>
+									</div>
+									<div class="form-group">
+										<button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+											Register
+										</button>
+									</div>
+									<div class="row sm-gutters">
+										<div class="col-6">
+											<a class="btn btn-block btn-social btn-facebook" href="/auth/facebook">
+												<span class="fab fa-facebook"></span> Facebook
+											</a>
+										</div>
+										<div class="col-6">
+											<a class="btn btn-block btn-social btn-danger" href="/auth/google">
+												<span class="fab fa-google"></span> Gmail
+											</a>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<!-- General JS Scripts -->
+	<script src="/js/app.min.js"></script>
+	<!-- JS Libraies -->
+	<!-- Page Specific JS File -->
+	<!-- Template JS File -->
+	<script src="/js/scripts.js"></script>
+	<!-- Custom JS File -->
+	<script src="/js/custom.js"></script>
+</body>
+
+
+
+</html>

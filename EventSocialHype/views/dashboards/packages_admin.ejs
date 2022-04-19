@@ -1,0 +1,63 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+
+<!-- Main Content -->
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Promotion Plans</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                            <th>Plan</th>
+                                            <th>Price</th>
+                                            <th>Duration</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%  for (let i = 0; i < packages.length; i++ ) { %>
+                                        <tr>
+                                            <td><%= i + 1 %></td>
+                                            <td><%= packages[i].name %></td>
+                                           
+                                            <td><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'NGN' }).format((Number(packages[i].price))) %></td>
+                                            <td><%= packages[i].duration < 0 ? "Unlimited" : packages[i].duration %> Days</td>
+                                            <td><%= packages[i].description %></td>
+                                            <td style="display: flex; justify-content: space-between;">
+                                                <a href="/edit/package/<%= packages[i].id %>"
+                                                    class="btn btn-primary btn-pill">Edit</a>
+                                                
+                                                <form id="delete-menu" action="/delete/package" method="POST">
+                                                    <input type="hidden" name="id" value="<%= packages[i].id %>">
+                                                    <button type="submit" class="btn btn-danger btn-pill">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<%- include("../partials/footer2") %>

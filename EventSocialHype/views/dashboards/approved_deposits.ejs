@@ -1,0 +1,62 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Approved Wallet Deposits</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                           
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Amount</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%  for (let i = 0; i < deposits.length; i++ ) { %>
+                                        <tr>
+                                            <td><%= i + 1 %></td>
+                                           
+                                            <td><%= deposits[i].user.name %></td>
+                                            <td><%= deposits[i].user.email %></td>
+                                            <td>$<%= deposits[i].amount %>.00</td>
+                                            <td><%= deposits[i].createdAt %></td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="btn btn-warning btn-pill"
+                                                    onclick="event.preventDefault();
+								                        document.getElementById('disapprove-deposit').submit();" style="color: aliceblue;">
+                                                    Dis-Approve
+                                                </a>
+                                                <form id="disapprove-deposit" action="/disapprove-deposit" method="POST"
+                                                    style="display: none;">
+                                                    <input type="hidden" name="id" value="<%= deposits[i].id %>">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

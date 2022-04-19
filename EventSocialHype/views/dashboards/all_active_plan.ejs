@@ -1,0 +1,62 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Active Plans</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                            <th>User Name</th>
+                                            <th>Email</th>
+                                            <th>Plan Name</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Start Date</th>
+                                            <th>Expiration Date</th>
+                                            <!-- <th>Action</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%  for (let i = 0; i < plans.length; i++ ) { %>
+                                        <tr>
+                                            <td><%= i + 1 %></td>
+                                            <td><%= plans[i].user.fname %>  <%= plans[i].user.lname %></td>
+                                            <td><%= plans[i].user.email %></td>
+                                            <td><%= plans[i].plan.name %></td>
+                                            <td><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'NGN' }).format((Number(plans[i].plan.price))) %></td>
+                                            
+                                            <% if (plans[i].status === 1) { %>
+                                            <td class="badge badge-success p-1 mt-2">Active</td>
+                                            <% } %>
+                                            <% if (plans[i].status === 0) { %>
+                                            <td class="badge badge-dark p-1 mt-2">Inactive</td>
+                                            <% } %>
+                                            <td><%= moment(plans[i].createdAt).format("DD-MMM-YYYY") %></td>
+                                            <td><%= moment(plans[i].expiredAt).format("DD-MMM-YYYY") %></td>
+                                            
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

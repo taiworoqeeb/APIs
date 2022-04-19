@@ -1,0 +1,67 @@
+<!-- header -->
+<%- include("../partials/header_admin") %> <%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+  <%- include("../partials/alerts") %>
+  <section class="section">
+    <div class="section-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4>All Banners</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped" id="table-1">
+                  <thead>
+                    <tr>
+                      <th class="text-center">#</th>
+                      <th>Title</th>
+                      <th>Date Expired</th>
+                      <th>Date Created</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for (let i = 0; i < banners.length; i++ ) { %>
+                    <tr>
+                      <td><%= i + 1 %></td>
+                      <td><%= banners[i].title %></td>
+                        
+                      <td><%= moment(banners[i].expiredAt).format('YYYY-MMM-DD') %></td>
+                      <td><%= moment(banners[i].createdAt).format('YYYY-MMM-DD') %></td>
+                      <td style="display: flex; align-items: center; justify-content: space-around;">
+                        <a
+                        href="/view/banner/<%= banners[i].id %>"
+                        class="btn btn-primary btn-pill"
+                        >View</a
+                      >
+                      
+                        <form
+                          id="delete-menu"
+                          action="/delete/banner"
+                          method="POST"
+                        >
+                          <input
+                            type="hidden"
+                            name="id"
+                            value="<%= banners[i].id %>"
+                          />
+                          <button class="btn btn-danger btn-pill mb-2" type="submit">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<%- include("../partials/footer2") %>

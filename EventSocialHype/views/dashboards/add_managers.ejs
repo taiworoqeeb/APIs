@@ -1,0 +1,75 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <form action="<%= edit ? '/update/manager' : '/add/manager' %>" method="POST"
+                        class="needs-validation" novalidate="">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4><%= edit ? 'Update Manager' : 'Add Manager' %></h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input id="name" type="text" class="form-control" name="name" tabindex="1"
+                                        value="<%= edit ? manager.name : '' %>" required autofocus>
+                                    <div class="invalid-feedback">
+                                        Please fill in manager's name
+                                    </div>
+                                </div>
+                                <% if(edit) { %>
+                                <input type="hidden" name="id" value="<%=manager.id %>">
+                                <% } %>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <% if(edit) { %>
+                                        <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                        value="<%= edit ? manager.email : '' %>" required autofocus disabled>
+                                    <div class="invalid-feedback">
+                                        Please fill in manager's email
+                                    </div>
+                                    <% } else { %>
+                                        <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                        value="<%= edit ? manager.email : '' %>" required autofocus>
+                                    <div class="invalid-feedback">
+                                        Please fill in manager's email
+                                    </div>
+                                    <% } %>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" type="text" class="form-control" name="phone" tabindex="1"
+                                        value="<%= edit ? manager.phone : '' %>" required autofocus>
+                                    <div class="invalid-feedback">
+                                        Please fill in manager's phone
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration">Password</label>
+                                    <input id="password" type="password" class="form-control" name="password"
+                                        tabindex="1" required autofocus>
+                                    <div class="invalid-feedback">
+                                        Please enter manager's password
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <button class="btn btn-primary mr-1"
+                                    type="submit"><%= edit ? 'Update' : 'Add' %></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

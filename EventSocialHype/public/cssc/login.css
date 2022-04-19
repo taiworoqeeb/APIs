@@ -1,0 +1,53 @@
+body {
+  background-color: #f5f5f5;
+}
+
+h2 {
+  font-weight: bold;
+  color: #006eb9;
+}
+
+.d-flex {
+  margin-top: 30px;
+}
+
+.ftco-footer {
+  padding: 1em 0 .3em 0;
+}
+
+.contact-section {
+  background-color: #f5f5f5;
+  height: 90vh;
+}
+
+.ftco-navbar-light {
+  background: transparent !important;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+form {
+  background: #fff;
+  padding: 1.5em 3em;
+  border-radius: 10px;
+  box-shadow: 0px 26px 30px -15px rgba(88, 88, 125, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+input {
+  border: 1px solid rgb(148, 147, 147) !important;
+}
+
+@media(max-width:769px) {
+  .ftco-navbar-light {
+    background: #000 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+  }
+}

@@ -1,0 +1,197 @@
+body{
+background-color: #f5ffe2 !important;
+padding: 4em 0em;
+overflow-x: hidden;
+}
+/*DEFAULT*/
+input,button,::placeholder,a,form,::-webkit-input-placeholder{
+transition:0.5s;
+color:#fff;
+}
+a{
+text-decoration:none;
+cursor:pointer;
+}
+.img-form{
+margin-bottom: 20px !important;
+width: 150px;
+}
+/*ANIMATION*/
+.animate {
+-webkit-animation: animatezoom 0.6s;
+animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+from {-webkit-transform: scale(0)} 
+to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+from {transform: scale(0)} 
+to {transform: scale(1)}
+}
+
+::-webkit-calendar-picker-indicator {
+filter: invert(1);
+}
+.login-div{
+	padding-left: 50px !important;
+}
+
+*, *:after, *:before {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.Signup_Form{
+width:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-family: 'Poppins', sans-serif;
+}
+
+.Signup_Form form{
+width:60%;
+box-shadow:0px 6px 16px 6px rgba(1, 1, 1, 0.342);
+border-radius:3px;
+background:rgba(1, 1, 1, 0.836);
+padding:30px;
+position:relative;
+}
+
+.Signup_Form form:hover{
+background:rgba(4, 11, 73, 0.884);
+}
+.Signup_Form .login-float-left{
+padding-top: 15px;
+padding-left: 10px;
+padding-right: 10px;
+border-radius: 20px;
+background:#7ABB08;
+color:rgb(255, 255, 255);
+font-size: 14px;
+font-weight: 500;
+text-align:center;
+float:right;
+position:absolute;
+right:1px;
+top:-15px;
+}
+.Signup_Form .login-float-left a{
+	color: #110252d2;
+}
+
+.Signup_Form .input{
+width:90%;
+padding:10px;
+background:transparent;
+display:block;
+outline:none;
+border:0;
+border-bottom:1px solid rgba(255,255,255,0.5);
+margin:20px 2px;
+}
+.checkbox-div{
+	margin-bottom: 10px;
+	margin-top: 20px !important;
+}
+.remenber-me{
+	padding-left: 5px;
+}
+.remenber-me a{
+	color: #7ABB08;
+}
+
+.Signup_Form textarea{
+width:90%;
+padding:10px;
+background:transparent;
+display:block;
+outline:none;
+border:0;
+border-bottom:1px solid rgba(255,255,255,0.5);
+margin:20px 0px;
+color: #fff;
+}
+.Signup_Form select{
+width:90%;
+padding:10px;
+background:transparent;
+display:block;
+outline:none;
+border:0;
+border-bottom:1px solid rgba(255,255,255,0.5);
+margin:20px 0px;
+color: #fff;
+}
+.options-form{
+color: #000;
+}
+
+small{
+font-size: 12px !important;
+margin-top: -10px !important;
+color: rgb(236, 236, 236);
+}
+
+.Signup_Form input:hover{
+border-bottom:1px solid rgba(255,255,255,1);
+}
+
+.Signup_Form .btn1{
+width:250px;
+padding:10px 20px;
+text-align:center;
+background:transparent;
+border:1px solid #fff;
+color:#fff;
+outline:none;
+margin:20px 0px;
+}
+
+.Signup_Form .btn1:hover{
+background:#fff;
+color:#000;
+}
+
+input:focus::placeholder,input:focus::-webkit-input-placeholder  {
+position:relative;
+top:-10px; 
+font-size:12px;
+color:rgba(255,255,255,0.5);
+}
+textarea:focus::placeholder,textarea:focus::-webkit-input-placeholder  {
+	position:relative;
+	top:-10px; 
+	font-size:12px;
+	color:rgba(255,255,255,0.5);
+	}
+
+@media (max-width:767px){
+	body{
+		padding: 3em 3em;
+	}
+	.Signup_Form form{
+	width: 100%;
+	}
+}
+@media (max-width:456px){
+	body{
+		padding: 3em 0em;
+	}
+	.Signup_Form form{
+	width: 100%;
+	}
+}
+@media (max-width: 550px){
+	.login-div{
+		padding-left:30px !important;
+	}
+}
+	
+	
+	

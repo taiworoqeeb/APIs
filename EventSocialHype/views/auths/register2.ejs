@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <!-- Favicon  -->
+  <link rel="icon" href="/images3/logo.png">
+  <!-- custom -->
+  <link rel="stylesheet" href="/css3/form.css">
+  <title>Welcome to Cryptedgesolutions, sign up to get started on your journey to financial freedom.</title>
+</head>
+
+<body>
+  <div id="main" class="container">
+    <%- include("../partials/alerts") %>
+    <!-- tab -->
+    <div id="tab-btn">
+      <a href="#" class="login active">Login</a>
+      <a href="#" class="register">Sign Up</a>
+    </div>
+
+    <!-- content -->
+
+    <div class="content">
+      <div class="image-container">
+        <img src="/images3/logo1.png" alt="logo">
+      </div>
+      <form action="/signin" method="POST" id="login-box">
+        <div class="form-group">
+          <input type="email" name="email" class="form-control" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" class="form-control" placeholder="Enter Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+      <div class="row socials">
+        <div class="col-5">
+          <div class="form-group">
+            <a href="/auth/facebook"><button type="button" class="form-control-submit-button facebook "
+                style="background-color: #2E4C83; "><span><i class="fab fa-facebook"></i></span><span
+                  class="text-light">Login With Facebook</span></button></a>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <a href="/auth/google"><button type="button" class="form-control-submit-button google"
+                style="background-color: #C44938;"><span><i class="fab fa-google"></i></span> <span
+                  class="text-light">Login With Google</span></button></a>
+          </div>
+        </div>
+      </div>
+      <p>Forgot your password ? <a href="/reset" style="color: #D96012; text-decoration: underline;"> Click here to
+          retrieve</a></p>
+    </div>
+
+    <div class="other">
+      <div class="image-container">
+        <img src="/images3/logo1.png" alt="logo">
+      </div>
+      <form action="/signup" method="POST" id="login-box">
+        <div class="form-group">
+          <input type="text" name="name" required class="form-control" placeholder="Enter Fullname">
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" required class="form-control" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+          <input type="text" name="phone" required class="form-control" placeholder="Enter Phone Number">
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" required class="form-control" placeholder="Enter Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Create an Account</button>
+      </form>
+      <div class="row socials">
+        <div class="col-5">
+          <div class="form-group">
+            <a href="/auth/facebook"><button type="button" class="form-control-submit-button facebook "
+                style="background-color: #2E4C83; "><span><i class="fab fa-facebook"></i></span><span
+                  class="text-light">Signup With Facebook</span></button>
+            </a>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <a href="/auth/google">
+              <button type="button" class="form-control-submit-button google"
+                style="background-color: #C44938;"><span><i class="fab fa-google"></i></span> <span
+                  class="text-light">Signup With Google</span>
+                </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- javascript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="/js3/scripts.js"></script>
+</body>
+
+</html>

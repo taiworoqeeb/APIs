@@ -1,0 +1,463 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/event") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="event-post">
+        <div class="container g-0">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="body-div">
+                                <div class="event-header">
+                                    <h2><%= events.title %> </h2>
+                                    
+                                </div>
+                                <div class="row justify-content-center">
+                                    <%- include("../partials/img2") %>
+                                      
+                                </div>
+                                <div class="row blog-text">
+                                    <div class="col-lg-2"></div>
+                                    <div class="col-lg-8">
+                                        <p>Owner: <%= events.owner === null ? ("N/A") :  (events.owner.name) %>  </p>
+                                        <p><%= (events.description) %> </p>
+                                        <p>Event Type: <span><%= getEventType(events.type) %> </span></p>
+                                        <p>Event Location: <span><%= events.address %>, <%= events.city %>, <%= events.state %> </span></p>
+                                        <p>Organizers: <span><%= events.organizers%> </span></p>
+                                        <% if (events.type === "invitation") { %>
+                                            <p>Slot: <span><%= events.slot%> (Remaining <%= events.slot - invites.length %>  ) </span></p>
+                                        <% } %>
+
+                                        <% if (events.type === "ticket") { %>
+                                            <p>Total Ticket Purchased: <span><%= events.event_tickets.length%> </span></p>
+                                        <% } %>
+                                        
+                                        <p>Event Date: <span><%= moment(events.eventDate).format("DD-MMM-YYYY") %> </span></p>
+                                        <p>TrustScore Points: <span><%= events.trustScore %> </span></p>
+                                        
+                                        <p>Total Donations Received: <span><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'NGN' }).format((Number( totalAmountDonated)))  %></span></p>
+
+                                        <p>Total People Donations: <span><%= donation.length %> </span></p>
+                                        
+                                        <p>Review: <span><%= review %> Star </span></p>
+                                        <div class="btn-div">
+                                            <input type="hidden" id="eventId" value="<%= events.id %>">
+                                            <div class="row">
+                                            <% if (events.approvalStatus !== "approved") { %>
+                                                
+                                                    <div class="col-md-3">
+                                                        <form action="/approve/event" method="post">
+                                                            <input type="hidden" name="id" value="<%= events.id %>">
+                                                            <button class="btn-donate" style="background-color: greenyellow;">Approve</button>
+                                                        </form>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                       
+                                                        <form action="/disapprove/event" method="post">
+                                                            <input type="hidden" name="id" value="<%= events.id %>">
+                                                            <button class="btn-donate" style="background-color: brown;">Disapprove</button>
+                                                        </form>
+                                                    </div>
+                                               
+                                            <% } %>
+                                            <div class="col-md-3">  
+                                                    <input type="hidden" id="deleteEventId" name="EventId" value="<%= events.id %>">
+                                                    
+                                                    <button class="btn-donate deleteEventBtn" id="<%= events.id %>" style="background-color: brown;">Delete</button>
+                                            </div>
+                                            <% if (merchandise > 0) { %>
+                                                <div class="col-md-3">  
+                                                    <a href="/view/merchandise/<%= events.id %> " class="btn btn-success">View Merchandise</a>
+                                                </div>
+                                            <% } %>
+                                            </div>
+                                            <!-- <a href="#" class="btn-donate" style="background-color: brown;">Delete</a> -->
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="row">
+                                
+
+                                 <% if (events.donateBtn === true) { %>
+                                    <div class="col-md-3">   
+                                        <button class="btn btn-info text-white enableDonateBtn" style="background-color: #5cb85c;">Enable Donate Button</button>
+                                    </div>
+                                
+                                <% } else { %>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-info text-white disableDonateBtn" style="background-color: #d9534f;">Disable Donate Button</button>
+                                    </div>
+                                <% } %>
+
+                                <% if (events.commentBtn === true) { %>
+                                    <div class="col-md-3">   
+                                        <button class="btn btn-info text-white enableCommentBtn" style="background-color: #5cb85c;">Enable Comment Button</button>
+                                    </div>
+                                
+                                <% } else { %>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-info text-white disableCommentBtn" style="background-color: #d9534f;">Disable Comment Button</button>
+                                    </div>
+                                <% } %>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4">
+                            <form action="/event/add-trust-score" method="post">
+                                <div class="form-group">
+                                    <input type="hidden" name="eventId" value="<%= events.id  %>">
+                                    <input type="number" name="trustScore" class="form-control" placeholder="Add Trust Score point">
+                                    
+                                </div>
+                                <button class="btn btn-success" type="submit">Add TrustScore</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   
+</div>
+<%- include("../partials/footer2") %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/subscribe.js"></script>
+<script>
+    $(document).ready(()=>{
+        // Invest Control
+        $('body').on('click','.enableInvestBtn',function(e){
+            console.log("enableInvestBtn");
+            e.preventDefault()
+            var id = $("#eventId").val();
+            console.log(id);
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do You want to Enable The Invest Button For This Event?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Enable it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url:'/enable-control-button',
+                        method:'post',
+                        data:{ id, type:"investBtn"},
+                        success:(res)=>{
+                            console.log(res);
+                            if (res.success) {
+                            
+                                Swal.fire({
+                                    title: "Button Enabled",
+                                    icon: 'success',
+                                    text: "Invest Button Enabled Successfully"
+                                }).then(()=>{
+                                    location.reload()
+
+                                })
+                            }else {
+                                Swal.fire({
+                                    title: "Server Error",
+                                    icon: 'error',
+                                    text: "Server Error Could not Enabled Invest Button "
+                                })
+                            }
+                        }
+                    })
+                    
+                }
+            })
+            
+        })
+
+        $('body').on('click','.disableInvestBtn',function(e){
+            console.log("disableInvestBtn");
+            e.preventDefault()
+            var id = $("#eventId").val();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do You want to Disable The Invest Button For This Event?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Disable It!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url:'/disable-control-button',
+                        method:'post',
+                        data:{ id, type:"investBtn"},
+                        success:(res)=>{
+                            console.log(res);
+                            if (res.success) {
+                            
+                                Swal.fire({
+                                    title: "Button Disabled",
+                                    icon: 'success',
+                                    text: "Invest Button disabled Successfully"
+                                }).then(()=>{
+                                    location.reload()
+
+                                })
+                            }else {
+                                Swal.fire({
+                                    title: "Server Error",
+                                    icon: 'error',
+                                    text: "Server Error Could not disable Invest Button "
+                                })
+                            }
+                            
+                            
+                        }
+                    })
+                    
+                }
+            })
+            
+        })
+    
+
+     // Donate Control
+        $('body').on('click','.enableDonateBtn',function(e){
+            console.log("enableDonateBtn");
+            e.preventDefault()
+            var id = $("#eventId").val();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do You want to Enable The Donate Button For This Event?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Enable it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url:'/enable-control-button',
+                        method:'post',
+                        data:{id, type:"donateBtn"},
+                        success:(res)=>{
+                            console.log(res);
+                            if (res.success) {
+                            
+                                Swal.fire({
+                                    title: "Button Enabled",
+                                    icon: 'success',
+                                    text: "Donate Button Enabled Successfully"
+                                }).then(()=>{
+                                    location.reload()
+
+                                })
+                            }else {
+                                Swal.fire({
+                                    title: "Server Error",
+                                    icon: 'error',
+                                    text: "Server Error Could not Enabled Donate Button "
+                                })
+                            }
+                        }
+                    })
+                    
+                }
+            })
+            
+        })
+
+        $('body').on('click','.disableDonateBtn',function(e){
+            console.log("disableDonateBtn");
+            e.preventDefault()
+            var id = $("#eventId").val();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do You want to Disable The Donate Button For This Event?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Disable It!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url:'/disable-control-button',
+                        method:'post',
+                        data:{id, type:"donateBtn"},
+                        success:(res)=>{
+                            console.log(res);
+                            if (res.success) {
+                            
+                                Swal.fire({
+                                    title: "Button Enabled",
+                                    icon: 'success',
+                                    text: "Donate Button Enabled Successfully"
+                                }).then(()=>{
+                                    location.reload()
+
+                                })
+                            }else {
+                                Swal.fire({
+                                    title: "Server Error",
+                                    icon: 'error',
+                                    text: "Server Error Could not Enabled Donate Button "
+                                })
+                            }
+                        }
+                    })
+                    
+                }
+            })
+            
+        })
+
+        // Comment Controls
+        $('body').on('click','.enableCommentBtn',function(e){
+            console.log("enableCommentBtn");
+            e.preventDefault()
+            var id = $("#eventId").val();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do You want to Enable The Comment Button For This Event?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Enable it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url:'/enable-control-button',
+                        method:'post',
+                        data:{id, type:"commentBtn"},
+                        success:(res)=>{
+                            console.log(res);
+                            if (res.success) {
+                            
+                                Swal.fire({
+                                    title: "Button Enabled",
+                                    icon: 'success',
+                                    text: "Comment Button Enabled Successfully"
+                                }).then(()=>{
+                                    location.reload()
+
+                                })
+                            }else {
+                                Swal.fire({
+                                    title: "Server Error",
+                                    icon: 'error',
+                                    text: "Server Error Could not Enable Comment Button "
+                                })
+                            }
+                        }
+                    })
+                    
+                }
+            })
+            
+        })
+
+        $('body').on('click','.disableCommentBtn',function(e){
+            console.log("disableCommentBtn");
+            e.preventDefault()
+            var id = $("#eventId").val();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do You want to Disable The Comment Button For This Event?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Disable It!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url:'/disable-control-button',
+                        method:'post',
+                        data:{id, type:"commentBtn"},
+                        success:(res)=>{
+                            console.log(res);
+                            if (res.success) {
+                            
+                                Swal.fire({
+                                    title: "Button Enabled",
+                                    icon: 'success',
+                                    text: "Comment Button Enabled Successfully"
+                                }).then(()=>{
+                                    location.reload()
+
+                                })
+                            }else {
+                                Swal.fire({
+                                    title: "Server Error",
+                                    icon: 'error',
+                                    text: "Server Error Could not Enable Comment Button "
+                                })
+                            }
+                        }
+                    })
+                    
+                }
+            })
+            
+        })
+
+        // Delete Event
+
+        $('body').on('click','.deleteEventBtn',function(e){
+            console.log("deleteEventBtn");
+            e.preventDefault()
+            var id = $("#eventId").val();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do You want to Delete This Event?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Delete It!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url:'/delete/event',
+                        method:'post',
+                        data:{EventId:id, },
+                        success:(res)=>{
+                            console.log(res);
+                            if (res.success) {
+                            
+                                Swal.fire({
+                                    title: "Event Deleted",
+                                    icon: 'success',
+                                    text: "Event Deleted Successfully"
+                                }).then(()=>{
+                                    window.location.href="/admin-event?approvalStatus=pending"
+
+                                })
+                            }else {
+                                Swal.fire({
+                                    title: "Server Error",
+                                    icon: 'error',
+                                    text: "Server Error Could not Delete Event"
+                                })
+                            }
+                        }
+                    })
+                    
+                }
+            })
+            
+        })
+    })
+</script>

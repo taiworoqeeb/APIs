@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon">
+    <title>Admin Login | Event Social Hype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+    <div class="container">
+      <%- include("../partials/alerts") %> 
+        <div class="row">
+            <div class="col-xl-3"></div>
+            <div class="col-xl-6">
+                <div class="login-content text-center">
+                    <a href="/">
+                        <img src="/assets/img/logo.png" width="120px" alt="Wall-ID Logo">
+                    </a>
+                    <p class="form-title">Login to have access to your dashboard</p>
+                    <div class="line-rule"></div>
+                    <form action="/admin" method="POST">
+                        <!-- Wall ID Number or Email Here -->
+                        <div>
+                            <label for="email or wall-is number">Email</label>
+                            <input type="text" name="email" required placeholder="Enter your email address">
+                        </div>
+
+                        <!-- Password Here -->
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" required placeholder="*************">
+                        </div>
+
+                        <!-- Login Button Here -->
+                        <div>
+                            <input type="submit" class="login-btn" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xl-3"></div>
+        </div>
+    </div>
+</body>
+</html>

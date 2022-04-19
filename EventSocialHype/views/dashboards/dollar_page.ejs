@@ -1,0 +1,37 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <form action="/dollarpage" method="POST" class="needs-validation" novalidate="">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4><%= cryptedge.title %> Dollar/Naira Value</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="value">Current Value</label>
+                                    <input id="value" type="text" class="form-control" name="amount" tabindex="1"
+                                        required autofocus value="<%= dollar.amount %>">
+                                    <div class="invalid-feedback">
+                                        Please fill in Dollar/Naira rate 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <button class="btn btn-primary mr-1" type="submit">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

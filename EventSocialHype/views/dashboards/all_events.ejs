@@ -1,0 +1,65 @@
+<!-- header -->
+<%- include("../partials/header_admin") %>
+<%- include("../partials/sidebar") %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <%- include("../partials/alerts") %>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><%= ucfirst(approvalStatus) %>  Events</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                            <th>Event Owner</th>
+                                            <th>Title</th>
+                                            <th>Event Type</th>
+                                            <th>Event Date</th>
+                                            <th>Event Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%  for (let i = 0; i < events.length; i++ ) { %>
+                                            <tr>
+                                                <td><%= i + 1 %></td>
+                                                <td><%= events[i].owner === null ? "N/A" : events[i].owner.name %> </td>
+                                                <td><%= events[i].title %></td>
+                                                <td><%= getEventType(events[i].type) %></td>
+                                                
+                                                <td><%= moment(events[i].eventDate).format("DD-MMM-YYYY") %></td>
+                                                    
+                                                <% if (events[i].eventStatus === "pending") { %>
+                                                <td ><button class="btn btn-info">Pending</button></td>
+                                                <% } %>
+                                                <% if (events[i].eventStatus === "ongoing") { %>
+                                                <td ><button class="btn btn-warning">Ongoing</button></td>
+                                                <% } %>
+                                                <% if (events[i].eventStatus === "completed") { %>
+                                                <td ><button class="btn btn-success">Completed</button></td>
+                                                <% } %>
+                                                <td > 
+                                                    <a href="/admin/my-event/<%=events[i].id  %>" class="btn btn-primary">View</a>
+                                                   
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include("../partials/footer2") %>

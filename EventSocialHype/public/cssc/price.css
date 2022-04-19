@@ -1,0 +1,231 @@
+.pricing-section {
+  padding: 60px 0;
+}
+
+.pricing-item .img-wrap {
+  background: #ffffff;
+  border-radius: 20px;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.pricing-item .img-wrap img {
+  position: absolute;
+  max-height: 60px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.pricing-section .save-percent {
+  font-size: 10px;
+  background: #FD7E14;
+  padding: 4px 10px;
+  font-weight: 700;
+  border-radius: 30px;
+  color: #ffffff;
+}
+
+.pricing-section .period {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.pricing-section .period-toggle {
+  width: 50px;
+  border-radius: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 30px;
+  background: #FD7E14;
+  position: relative;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}
+
+.pricing-section .period-toggle:before {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+  content: "";
+  position: absolute;
+  left: 1px;
+  height: 28px;
+  width: 28px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #ffffff;
+  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pricing-section .period-toggle.active:before {
+  left: 21px;
+}
+
+.pricing-section .pricing-item {
+  padding: 30px 10px;
+  padding-bottom: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 40px;
+  -webkit-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pricing-section .pricing-item h3 {
+  font-weight: 700;
+  font-size: 23px;
+  margin-bottom: 30px;
+}
+
+.pricing-section .pricing-item .description {
+  /* border-bottom: 1px solid #efefef; */
+  margin-bottom: 20px;
+}
+
+.pricing-section .pricing-item .description p {
+  color: #a0a4ab;
+  font-size: 0.9em;
+}
+
+.pricing-section .pricing-item:hover {
+  /* border: 1px solid #FD7E14; */
+  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pricing-section .pricing-item ul {
+  text-align: left;
+}
+
+.pricing-section .pricing-item ul li {
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.pricing-section .pricing-item .price-wrap {
+  display: block;
+  color: #FD7E14;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.pricing-section .pricing-item .price-wrap>div {
+  height: 46px;
+  overflow: hidden;
+}
+
+.pricing-section .pricing-item .price-wrap>.price>div {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}
+
+.pricing-section .pricing-item .period-wrap {
+  font-size: 16px;
+}
+
+.pricing-section .pricing-item .period-wrap .period {
+  height: 27px;
+  line-height: 27px;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+.pricing-section .pricing-item .period-wrap .period>div {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}
+
+.pricing-section .pricing-item.yearly .price-wrap>.price>div {
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.pricing-section .pricing-item.yearly .period-wrap>.period>div {
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.h6 {
+  font-size: 18px;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.cookie-container {
+  position: fixed;
+  /*width: 90%;*/
+  bottom: -100;
+  left: 0;
+  right: 0;
+  background: rgb(56, 63, 71);
+  color: #f5f6fa;
+  padding: 10px 32px 0;
+  transition: 400ms;
+  box-shadow: 0 -2px 16px rgba(56, 63, 71, 0.185);
+}
+
+.cookie-container.active {
+  bottom: 0;
+}
+.cookie-container p{
+  font-size: 11px;
+  margin-bottom: -5px;
+}
+.cookie-container a {
+  color: #FD7E14;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.cookie-button {
+  background: #F4811F;
+  color: #f5f6fa;
+  padding: 1px 20px;
+  transition: 400ms;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+#prices {
+  display: flex;
+}
+
+@media (max-width: 991.98px) {
+  .pricing-section {
+    padding: 10px 0;
+  }
+  .works .col-lg-4 {
+    margin-top: 50px;
+  }
+}
+
+@media(max-width: 769px) {
+  #prices {
+    flex-direction: column;
+  }
+  .slick-prev, .slick-next {
+  display: none !important;
+  }
+}

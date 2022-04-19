@@ -1,0 +1,277 @@
+/* Event Listing */
+.event-listing .card{
+    border-color: #13054d54;
+}
+.event-listing .card img{
+    height: 210px;
+    width: 100%;
+}
+.event-listing .card-title{
+    font-weight: bold;
+    font-size: 22px;
+}
+.event-listing .card-subtitle{
+    font-size: 14px;
+    padding-bottom: 30px;
+}
+.event-listing .card-text{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -15px;
+}
+.event-listing .card-text span{
+    font-size: 16px;
+    font-weight: 400;
+}
+.event-listing .btn-div{
+    display: inline;
+}
+.event-listing .btn-div .btn-invest, .event-listing .btn-div .btn-donate{
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.5s;
+}
+.event-listing .btn-div .btn-invest{
+    background-color: #13054D;
+    margin-right: 10px;
+}
+.event-listing .btn-div .btn-invest:hover{
+    border: 1px solid #13054D;
+    background-color: #13054d00;
+    color: #13054D;
+}
+.event-listing .btn-div .btn-donate{
+    background-color: #6EA311;
+}
+.event-listing .btn-div .btn-donate:hover{
+    border: 1px solid #6EA311;
+    background-color: #13054d00;
+    color: #6EA311;
+}
+.event-listing .btn-social{
+    float: right;
+    display: inline;
+    margin-top: -2px;
+}
+.event-listing .btn-social a:nth-child(1){
+    font-size: 15px;
+}
+.event-listing .btn-social a{
+    font-size: 18px;
+    padding-left: 5px;
+    color: #13054D;
+    text-decoration: none;
+}
+.event-listing .card-footer{
+    background-color: rgb(255, 255, 255);
+    border-top: 1px solid #13054d54;
+}
+.event-listing .card-footer small{
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+}
+.event-listing .card-footer small:nth-child(2){
+    float: right;
+    padding-top: 4px;
+}
+.event-listing .card-footer small i{
+    padding-right: 3px;
+}
+@media(max-width: 991px){
+    .event-listing img{
+        height: auto !important;
+        width: 100%;
+    }
+}
+@media(max-width: 413px){
+    .event-listing .btn-social{
+        float: left;
+        margin-top: 20px;
+    }
+}
+
+/* Event Post */
+.event-post{
+    padding: 10px 20px 100px 20px;
+}
+.event-post .container{
+    background-color: #fff;
+    padding: 50px 10px 50px 10px;
+    border-radius: 5px;
+}
+.event-post .body-div{
+    margin-top: 10px;
+    color: #000000;
+}
+.event-post .body-div .event-header h2{
+    font-weight: 700;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 38px;
+}
+.event-post .body-div .event-header p{
+    font-weight: 700;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 17px;
+}
+.event-post .body-div .blog-image{
+    width: 100%;
+    border-radius: 10px;
+  }
+.event-post .body-div .blog-text{
+    padding: 30px 10px;
+}
+.event-post .body-div .blog-text p{
+    font-size: 18px;
+    font-weight: bold;
+}
+.event-post .body-div .blog-text p span{
+    font-weight: 400;
+}
+.event-post .btn-div{
+    margin-top: 30px;
+}
+.event-post .btn-div .btn-invest, .event-post .btn-div .btn-donate{
+    color: #fff;
+    padding: 15px 45px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.5s;
+}
+.event-post .btn-div .btn-invest{
+    background-color: #13054D;
+    margin-right: 10px;
+}
+.event-post .btn-div .btn-invest:hover{
+    border: 1px solid #13054D;
+    background-color: #13054d00;
+    color: #13054D;
+}
+.event-post .btn-div .btn-donate{
+    background-color: #6EA311;
+}
+.event-post .btn-div .btn-donate:hover{
+    border: 1px solid #6EA311;
+    background-color: #13054d00;
+    color: #6EA311;
+}
+.event-post .body-div .share-social{
+    padding: 1px 10px ;
+}
+.event-post .body-div .share-social .border-top-div{
+    border-top: 1px solid rgb(47, 47, 47);
+    padding: 20px 10px !important;
+}
+.event-post .body-div .border-top-div a:nth-child(1){
+    font-size: 16px;
+}
+.event-post .body-div .border-top-div a{
+    font-size: 20px;
+    padding-left: 10px;
+    color: #13054D;
+    text-decoration: none;
+}
+.event-post .body-div .border-top-div .goback-link{
+    font-size: 16px;
+    float: right;
+}
+.popper-div{
+    margin-top: 10px;
+}
+#popper-button{
+    background-color: #13054D;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+#popper-popup {
+    display: none;
+    background: rgb(255, 255, 255);
+    font-size: 13px;
+    border-radius: 4px;
+    display: none;
+    max-width: 100%;
+    padding: 30px 20px;
+    margin-top: 20px;
+}
+#popper-popup[data-popper-reference-hidden] {
+    visibility: hidden;
+    pointer-events: none;
+}
+#popper-popup[show-popper] {
+    display: block;
+    z-index: 9999;
+}
+#popper-arrow, #popper-arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #333333;
+}
+#popper-arrow {
+    visibility: hidden;
+}
+#popper-arrow::before {
+    visibility: visible;
+    content: "";
+    transform: rotate(45deg);
+}
+#popper-popup[data-popper-placement^="top"] #popper-arrow {
+    bottom: -4px;
+}
+#popper-popup[data-popper-placement^="bottom"] #popper-arrow {
+    top: -4px;
+}
+#popper-popup[data-popper-placement^="left"] #popper-arrow {
+    right: -4px;
+}
+#popper-popup[data-popper-placement^="right"] #popper-arrow {
+    left: -4px;
+}
+#popper-popup[data-popper-reference-hidden] #popper-arrow::before {
+    visibility: hidden;
+}
+#popper-popup h6{
+    font-weight: 700;
+}
+#popper-popup .comment-meta{
+    margin-top: 15px;
+}
+#popper-popup .comment-body{
+    font-size: 16px;
+}
+#popper-popup textarea{
+    padding: 15px 15px !important;
+    border: 1px solid #000 !important;
+    color: #000;
+    font-size: 16px;
+    resize: none;
+    width: 100%;
+    border-radius: 5px;
+}
+#popper-popup input{
+    background-color: #13054D;
+    color: #fff;
+    padding: 10px 25px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
+@media (max-width:454px){
+    .event-post .body-div .border-top-div .goback-link{
+        margin-top: 10px;
+    }
+}
+@media (max-width:379px){
+    .event-post .btn-div .btn-invest, .event-post .btn-div .btn-donate{
+        padding: 15px 25px;
+    }
+}
